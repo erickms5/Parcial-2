@@ -23,18 +23,14 @@ val catalogo: List[Libro] = List(
   Libro("Redes de Computadores", "Luis Andrade", 435, 2019)
 )
 case class AutorInfo(autor: String, totalPaginas: Int, cantidadLibros: Int)
-def autorMasProductivo(catalogo: List[Libro], paginasMinimas: Int, anioMinimo: Int): Option[AutorInfo] = {
-  val librosFiltrados = catalogo.filter(libro => libro.paginas >= paginasMinimas && libro.anio >= anioMinimo)
-  if (librosFiltrados.isEmpty) {
-    return None
-  }
-  val autoresUnicos = librosFiltrados.map(_.autor).distinct
-  val autorInfos = autoresUnicos.map { autor =>
-    val librosDelAutor = librosFiltrados.filter(_.autor == autor)
-    val totalLibros = librosDelAutor.length
-    val totalPaginas = librosDelAutor.map(_.paginas).sum
-    AutorInfo(autor, totalPaginas, totalLibros)
-  }
-  val autorMasProductivo = autorInfos.maxBy(_.totalPaginas)
-  Some(autorMasProductivo)
+def autorProdu(catalogo : List[Libro]) : AutorInfo = {
+  val autopr : List[Libro] = catalogo.map(condi1)
+  val autoinf : List[AutorInfo] = autopr.map(condi2)
+}
+def condi1(L : Libro) : Libro = {
+  if(L.paginas > 200)
+    if(L.anio> 2013)
+}
+def condi2(L : Libro) : AutorInfo = {
+  if(L.autor)
 }
